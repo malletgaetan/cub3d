@@ -74,8 +74,8 @@ void	recup_pos(void)
 		{
 			if (is_character(g_conf.map[j][i]))
 			{
-				g_gs.pos_x = i;
-				g_gs.pos_y = j;
+				g_gs.pos_x = i + 0.5;
+				g_gs.pos_y = j + 0.5;
 			}
 		}
 	}

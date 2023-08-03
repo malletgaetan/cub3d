@@ -6,7 +6,7 @@
 /*   By: tbatteux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 14:49:33 by tbatteux          #+#    #+#             */
-/*   Updated: 2023/07/31 14:43:24 by tbatteux         ###   ########.fr       */
+/*   Updated: 2023/08/03 16:09:17 by tbatteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,6 @@ int	parser(char *arg)
 		return (1);
 	recup_pos();
 	recup_orientation();
-	//destroy_pos();
+	destroy_pos();
 	return (0);
 }
