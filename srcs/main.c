@@ -10,13 +10,13 @@ void	unsetup_mlx(void)
 	if (g_mlx_state.img != NULL)
 		mlx_destroy_image(g_mlx_state.mlx, g_mlx_state.img);
 	if (g_conf.ea.img != NULL)
-		mlx_destroy_image(g_mlx_state.mlx, g_mlx_state.img);
+		mlx_destroy_image(g_mlx_state.mlx, g_conf.ea.img);
 	if (g_conf.so.img != NULL)
-		mlx_destroy_image(g_mlx_state.mlx, g_mlx_state.img);
+		mlx_destroy_image(g_mlx_state.mlx, g_conf.so.img);
 	if (g_conf.we.img != NULL)
-		mlx_destroy_image(g_mlx_state.mlx, g_mlx_state.img);
+		mlx_destroy_image(g_mlx_state.mlx, g_conf.we.img);
 	if (g_conf.no.img != NULL)
-		mlx_destroy_image(g_mlx_state.mlx, g_mlx_state.img);
+		mlx_destroy_image(g_mlx_state.mlx, g_conf.no.img);
 	if (g_mlx_state.mlx != NULL)
 		mlx_destroy_display(g_mlx_state.mlx);
 }
