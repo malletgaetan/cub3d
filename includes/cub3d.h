@@ -103,7 +103,7 @@ t_texture	*dda(t_dda *data);
 
 // PARSER
 void		recup_pos(void);
-void    	destroy_pos(void);
+void    	destroy_pos(char ***map);
 void    	rotate_player(double radians);
 void		recup_orientation(void);
 int			t_line(char *map);

@@ -25,43 +25,43 @@ void	rotate_player(double radians)
 	g_gs.plane_y = (old_plane_x * sin(radians)) + (g_gs.plane_y * cos(radians));
 }
 
-void	modif(int i, int j)
+void	modif(int i, int j, char ***map)
 {
-	if ((g_conf.map)[i][j] == 'N')
+	if ((*map)[i][j] == 'N')
 	{
-		(g_conf.map)[i][j] = '0';
+		(*map)[i][j] = '0';
 		rotate_player(M_PI / 2);
 	}
-	if ((g_conf.map)[i][j] == 'S')
+	if ((*map)[i][j] == 'S')
 	{
-		(g_conf.map)[i][j] = '0';
+		(*map)[i][j] = '0';
 		rotate_player(3 * M_PI / 2);
 	}
-	if ((g_conf.map)[i][j] == 'E')
+	if ((*map)[i][j] == 'E')
 	{
-		(g_conf.map)[i][j] = '0';
+		(*map)[i][j] = '0';
 		rotate_player(M_PI);
 	}
-	if ((g_conf.map)[i][j] == 'W')
+	if ((*map)[i][j] == 'W')
 	{
-		(g_conf.map)[i][j] = '0';
+		(*map)[i][j] = '0';
 		rotate_player(-M_PI);
 	}
 }
 
-void	destroy_pos(void)
+void	destroy_pos(char ***map)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while((g_conf.map)[i])
+	while((*map)[i])
 	{
 		j = 0;
-		while ((g_conf.map)[i][j])
+		while ((*map)[i][j])
 		{
-			if (is_character((g_conf.map)[i][j]))
-				modif(i, j);
+			if (is_character((*map)[i][j]) == 0)
+				modif(i, j, map);
 			j++;
 		}
 		i++;

@@ -90,6 +90,6 @@ int	parser(char *arg)
 		return (1);
 	recup_pos();
 	recup_orientation();
-	destroy_pos();
+	destroy_pos(&(g_conf.map));
 	return (0);
 }
