@@ -17,6 +17,8 @@
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 800
 
+#include <stdio.h>
+
 typedef struct s_mlx_state
 {
 	void		*mlx; // main job to set
@@ -86,6 +88,8 @@ extern t_mlx_state	g_mlx_state;
 extern t_gcan	g_gc;
 extern t_game_state	g_gs;
 extern t_conf	g_conf;
+
+void		rotate_player(double radians);
 
 // ENGINE
 int			handle_keypress(int keysym, void *param);

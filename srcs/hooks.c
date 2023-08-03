@@ -28,8 +28,6 @@ static int	player_movement(int keysym)
 static int	player_vision(int keysym)
 {
 	double	angle;
-	double	old_dir_x;
-	double	old_plane_x;
 
 	angle = 0;
 	if (keysym == XK_Left)
@@ -38,12 +36,7 @@ static int	player_vision(int keysym)
 		angle = -0.1;
 	if (angle == 0)
 		return (1);
-	old_dir_x = g_gs.dir_x;
-	g_gs.dir_x = (old_dir_x * cos(angle)) - (g_gs.dir_y * sin(angle));
-	g_gs.dir_y = (old_dir_x * sin(angle)) + (g_gs.dir_y * cos(angle));
-	old_plane_x = g_gs.plane_x;
-	g_gs.plane_x = (old_plane_x * cos(angle)) - (g_gs.plane_y * sin(angle));
-	g_gs.plane_y = (old_plane_x * sin(angle)) + (g_gs.plane_y * cos(angle));
+	rotate_player(angle);
 	return (0);
 }
 
