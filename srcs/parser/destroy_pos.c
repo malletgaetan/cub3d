@@ -54,7 +54,7 @@ void	destroy_pos(char ***map)
 	int	j;
 
 	i = 0;
-	while((*map)[i])
+	while ((*map)[i])
 	{
 		j = 0;
 		while ((*map)[i][j])
@@ -66,4 +66,3 @@ void	destroy_pos(char ***map)
 		i++;
 	}
 }
-
