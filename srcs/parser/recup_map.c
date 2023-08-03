@@ -62,7 +62,7 @@ void	stocker_map(char *txt)
 		j++;
 		i++;
 	}
-	g_conf.map[j] = 0;
+	g_conf.map[j] = NULL;
 }
 
 void	recup_map(char *txt)

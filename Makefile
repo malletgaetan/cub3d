@@ -8,7 +8,7 @@ MLX = libmlx.a
 LIBGC = libgc.a
 MLXFLAGS = -L $(MLXDIR) -l mlx -lXext -lX11 -lm
 LIBGCFLAGS = -L $(LIBGCDIR) -l:$(LIBGC)
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 SRCS=$(shell find $(SRCSDIR) -name '*.c')
 OBJS=$(SRCS:.c=.o)

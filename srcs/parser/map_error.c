@@ -17,11 +17,11 @@ int	contour_map(char **map)
 	int	i;
 	int	j;
 
-	i = -1;
-	while (map[++i])
+	i = 0;
+	while (map[i])
 	{
 		j = 0;
-		while (map[i][j])
+		while (j < t_line(map[i]))
 		{
 			while (map[i][j] && map[i][j] == ' ')
 				j++;
@@ -33,6 +33,7 @@ int	contour_map(char **map)
 				return (1);
 			j++;
 		}
+		i++;
 	}
 	return (0);
 }

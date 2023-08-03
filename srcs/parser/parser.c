@@ -79,7 +79,10 @@ int	parser(char *arg)
 	recup_texture(txt, "WE", 3);
 	recup_texture(txt, "EA", 4);
 	if (setup_textures())
+	{
+		printf("Error: invalid textures\n");
 		return (1);
+	}
 	if (recup_color(txt, 'C', 1) || recup_color(txt, 'F', 2))
 		return (1);
 	recup_map(txt);
@@ -87,5 +90,6 @@ int	parser(char *arg)
 		return (1);
 	recup_pos();
 	recup_orientation();
+	//destroy_pos();
 	return (0);
 }
