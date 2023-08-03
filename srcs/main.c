@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gmallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/03 18:26:55 by gmallet           #+#    #+#             */
+/*   Updated: 2023/08/03 18:26:56 by gmallet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 t_gcan			g_gc;
@@ -39,6 +51,13 @@ int	setup_mlx(void)
 	return (0);
 }
 
+void	quit(int err)
+{
+	unsetup_mlx();
+	gc_clean(&(g_gc));
+	exit(err);
+}
+
 int	main(int argc, char **argv)
 {
 	gc_init(&(g_gc));
@@ -50,21 +69,11 @@ int	main(int argc, char **argv)
 	g_gs.plane_x = 0;
 	g_gs.plane_y = 0.66;
 	if (g_mlx_state.mlx == NULL)
-		return (1);
+		quit(1);
 	if (parser(argv[1]))
-	{
-		unsetup_mlx();
-		gc_clean(&(g_gc));
-		return (1);
-	}
+		quit(1);
 	if (setup_mlx())
-	{
-		unsetup_mlx();
-		gc_clean(&(g_gc));
-		return (1);
-	}
+		quit(1);
 	mlx_loop(g_mlx_state.mlx);
-	unsetup_mlx();
-	gc_clean(&(g_gc));
-	return (0);
+	quit(0);
 }

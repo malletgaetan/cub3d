@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hooks.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gmallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/03 18:26:36 by gmallet           #+#    #+#             */
+/*   Updated: 2023/08/03 18:26:37 by gmallet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
-#define MOVE_SPEED (double)0.5
+#define MS (double)0.5
 
 static int	update_pos(double xadder, double yadder)
 {
@@ -14,16 +26,15 @@ static int	update_pos(double xadder, double yadder)
 static int	player_movement(int keysym)
 {
 	if (keysym == XK_d)
-		return (update_pos((g_gs.dir_y * MOVE_SPEED), -(g_gs.dir_x * MOVE_SPEED)));
+		return (update_pos((g_gs.dir_y * MS), -(g_gs.dir_x * MS)));
 	if (keysym == XK_a)
-		return (update_pos(-(g_gs.dir_y * MOVE_SPEED), (g_gs.dir_x * MOVE_SPEED)));
+		return (update_pos(-(g_gs.dir_y * MS), (g_gs.dir_x * MS)));
 	if (keysym == XK_w)
-		return (update_pos((g_gs.dir_x * MOVE_SPEED), (g_gs.dir_y * MOVE_SPEED)));
+		return (update_pos((g_gs.dir_x * MS), (g_gs.dir_y * MS)));
 	if (keysym == XK_s)
-		return (update_pos(-(g_gs.dir_x * MOVE_SPEED), -(g_gs.dir_y * MOVE_SPEED)));
+		return (update_pos(-(g_gs.dir_x * MS), -(g_gs.dir_y * MS)));
 	return (1);
 }
-
 
 static int	player_vision(int keysym)
 {
