@@ -30,22 +30,21 @@ void	modif(int i, int j, char ***map)
 	if ((*map)[i][j] == 'N')
 	{
 		(*map)[i][j] = '0';
-		rotate_player(M_PI / 2);
 	}
 	if ((*map)[i][j] == 'S')
 	{
 		(*map)[i][j] = '0';
-		rotate_player(3 * M_PI / 2);
+		rotate_player(M_PI);
 	}
 	if ((*map)[i][j] == 'E')
 	{
 		(*map)[i][j] = '0';
-		rotate_player(M_PI);
+		rotate_player(-M_PI / 2);
 	}
 	if ((*map)[i][j] == 'W')
 	{
 		(*map)[i][j] = '0';
-		rotate_player(-M_PI);
+		rotate_player(M_PI / 2);
 	}
 }
 

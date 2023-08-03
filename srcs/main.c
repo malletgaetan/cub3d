@@ -45,6 +45,10 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (0);
 	g_mlx_state.mlx = mlx_init();
+	g_gs.dir_x = -1;
+	g_gs.dir_y = 0;
+	g_gs.plane_x = 0;
+	g_gs.plane_y = 0.66;
 	if (g_mlx_state.mlx == NULL)
 		return (1);
 	if (parser(argv[1]))
@@ -59,12 +63,6 @@ int	main(int argc, char **argv)
 		gc_clean(&(g_gc));
 		return (1);
 	}
-	g_gs.pos_x = 3;
-	g_gs.pos_y = 3;
-	g_gs.dir_x = -1;
-	g_gs.dir_y = 0;
-	g_gs.plane_x = 0;
-	g_gs.plane_y = 0.66;
 	mlx_loop(g_mlx_state.mlx);
 	unsetup_mlx();
 	gc_clean(&(g_gc));

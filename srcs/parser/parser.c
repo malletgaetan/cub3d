@@ -89,7 +89,6 @@ int	parser(char *arg)
 	if (map_error(g_conf.map))
 		return (1);
 	recup_pos();
-	recup_orientation();
 	destroy_pos(&(g_conf.map));
 	return (0);
 }

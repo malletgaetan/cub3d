@@ -74,49 +74,9 @@ void	recup_pos(void)
 		{
 			if (is_character(g_conf.map[j][i]))
 			{
-				g_gs.pos_x = i + 0.5;
-				g_gs.pos_y = j + 0.5;
+				g_gs.pos_y = i - 0.5;
+				g_gs.pos_x = j - 0.5;
 			}
 		}
-	}
-}
-
-void	get_orientation(char c)
-{
-	if (c == 'N')
-	{
-		g_gs.dir_x = 0;
-		g_gs.dir_y = 1;
-	}
-	if (c == 'S')
-	{
-		g_gs.dir_x = 0;
-		g_gs.dir_y = -1;
-	}
-	if (c == 'E')
-	{
-		g_gs.dir_x = 1;
-		g_gs.dir_y = 0;
-	}
-	if (c == 'W')
-	{
-		g_gs.dir_x = -1;
-		g_gs.dir_y = 1;
-	}
-}
-
-void	recup_orientation(void)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	j = -1;
-	while (g_conf.map[++j])
-	{
-		i = -1;
-		while (g_conf.map[j][++i])
-			if (is_character(g_conf.map[j][i]))
-				get_orientation(g_conf.map[j][i]);
 	}
 }

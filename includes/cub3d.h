@@ -105,7 +105,6 @@ t_texture	*dda(t_dda *data);
 void		recup_pos(void);
 void    	destroy_pos(char ***map);
 void    	rotate_player(double radians);
-void		recup_orientation(void);
 int			t_line(char *map);
 int			ft_atoi(char *nptr);
 int			map_filled(char **map);
