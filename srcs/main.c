@@ -29,8 +29,11 @@ void	unsetup_mlx(void)
 		mlx_destroy_image(g_mlx_state.mlx, g_conf.we.img);
 	if (g_conf.no.img != NULL)
 		mlx_destroy_image(g_mlx_state.mlx, g_conf.no.img);
+	if (g_mlx_state.win != NULL)
+		mlx_destroy_window(g_mlx_state.mlx, g_mlx_state.win);
 	if (g_mlx_state.mlx != NULL)
 		mlx_destroy_display(g_mlx_state.mlx);
+	free(g_mlx_state.mlx);
 }
 
 int	setup_mlx(void)
