@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gmallet <gmallet@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 18:29:02 by gmallet           #+#    #+#             */
-/*   Updated: 2023/08/03 18:29:03 by gmallet          ###   ########.fr       */
+/*   Updated: 2023/08/05 20:31:07 by gmallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ typedef struct s_dda
 	double	side_dist_y;
 	int		step_x;
 	int		step_y;
-	int		hit;
 	int		side;
 	double	delta_dist_x;
 	double	delta_dist_y;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gmallet <gmallet@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 18:26:55 by gmallet           #+#    #+#             */
-/*   Updated: 2023/08/03 18:26:56 by gmallet          ###   ########.fr       */
+/*   Updated: 2023/08/05 20:10:03 by gmallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ int	setup_mlx(void)
 void	quit(int err)
 {
 	unsetup_mlx();
-	gc_clean(&(g_gc));
+	gc_clean(&g_gc);
 	exit(err);
 }
 
 int	main(int argc, char **argv)
 {
-	gc_init(&(g_gc));
+	gc_init(&g_gc);
 	if (argc != 2)
 		return (0);
 	g_mlx_state.mlx = mlx_init();

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbatteux <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gmallet <gmallet@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 15:30:39 by tbatteux          #+#    #+#             */
-/*   Updated: 2023/07/31 14:41:05 by tbatteux         ###   ########.fr       */
+/*   Updated: 2023/08/05 20:48:18 by gmallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,11 @@ void	recup_pos(void)
 		i = -1;
 		while (g_conf.map[j][++i])
 		{
-			if (is_character(g_conf.map[j][i]))
+			if (!is_character(g_conf.map[j][i]))
 			{
-				g_gs.pos_y = i - 0.5;
-				g_gs.pos_x = j - 0.5;
+				g_gs.pos_y = i + 0.5;
+				g_gs.pos_x = j + 0.5;
+				return ;
 			}
 		}
 	}

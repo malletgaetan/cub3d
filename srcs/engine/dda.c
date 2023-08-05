@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gmallet <gmallet@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 18:26:04 by gmallet           #+#    #+#             */
-/*   Updated: 2023/08/03 18:26:06 by gmallet          ###   ########.fr       */
+/*   Updated: 2023/08/05 20:47:22 by gmallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static void	setup_dda2(t_dda *data)
 		data->delta_dist_y = 1e30;
 	else
 		data->delta_dist_y = fabs(1 / data->ray_dir_y);
-	data->hit = 0;
 }
 
 void	setup_dda(t_dda *data)
@@ -65,10 +64,9 @@ static t_texture	*step_x(t_dda *data)
 	if (g_conf.map[data->map_x][data->map_y] != '0')
 	{
 		if (data->step_x > 0)
-			text = &(g_conf.we);
+			text = &(g_conf.so);
 		else
-			text = &(g_conf.ea);
-		data->hit = 1;
+			text = &(g_conf.no);
 	}
 	return (text);
 }
@@ -84,10 +82,9 @@ static t_texture	*step_y(t_dda *data)
 	if (g_conf.map[data->map_x][data->map_y] != '0')
 	{
 		if (data->step_y > 0)
-			text = &(g_conf.so);
+			text = &(g_conf.ea);
 		else
-			text = &(g_conf.no);
-		data->hit = 1;
+			text = &(g_conf.we);
 	}
 	return (text);
 }
@@ -96,7 +93,8 @@ t_texture	*dda(t_dda *data)
 {
 	t_texture	*text;
 
-	while (data->hit == 0)
+	text = NULL;
+	while (text == NULL)
 	{
 		if (data->side_dist_x < data->side_dist_y)
 			text = step_x(data);

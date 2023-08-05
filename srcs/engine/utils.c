@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmallet <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: gmallet <gmallet@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 18:26:16 by gmallet           #+#    #+#             */
-/*   Updated: 2023/08/03 18:26:17 by gmallet          ###   ########.fr       */
+/*   Updated: 2023/08/05 20:49:48 by gmallet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	draw_vertical_line(int x, int line_height, t_texture *text, int text_x)
 	while (y < draw_start)
 		img_pix_put(x, y++, g_conf.cell_color);
 	text_y = 0.0;
-	while (y < draw_end)
+	while (y <= draw_end)
 	{
 		img_pix_put(x, y++, get_pix_color(text, text_x, (int)text_y));
 		text_y += step;
