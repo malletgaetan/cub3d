@@ -123,7 +123,7 @@ char		*ft_strjoin(char *s1, char *s2);
 int			parser(char *arg);
 void		recup_texture(char *txt, char *find, int x);
 int			recup_color(char *txt, char find, int x);
-void		recup_map(char *txt);
+int		recup_map(char *txt);
 char		*ft_get_line(char *save);
 char		*ft_save(char *save);
 char		*ft_read_and_save(int fd, char *save);
