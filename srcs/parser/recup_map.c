@@ -63,7 +63,7 @@ int	stocker_map(char *txt)
 	}
 	g_conf.map[j] = NULL;
 	if (txt[i])
-		if (printf("error: the map isn't the last parameter in the .cub\n"))
+		if (printf("Error: The map isn't the last parameter in the .cub\n"))
 			return (1);
 	return (0);
 }
@@ -74,7 +74,7 @@ int	recup_map(char *txt)
 
 	i = -1;
 	while (txt[++i])
-		if ((txt[i] == '1' || txt[i] == '0')
+		if (txt[i] == '1'
 			&& (txt[i + 1] == '1' || txt[i + 1] == '\n')
 			&& (txt[i - 1] == ' ' || txt[i - 1] == '\n' || txt[i - 1] == '\t'))
 			break ;
