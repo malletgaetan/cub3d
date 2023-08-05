@@ -73,6 +73,10 @@ int	parser(char *arg)
 {
 	char		*txt;
 
+	g_conf.north = "texture/north";
+	g_conf.south = "texture/south";
+	g_conf.east = "texture/east";
+	g_conf.west = "texture/west";
 	txt = recup_txt(arg);
 	recup_texture(txt, "NO", 1);
 	recup_texture(txt, "SO", 2);
