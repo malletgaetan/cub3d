@@ -34,6 +34,8 @@ void	recup_texture(char *txt, char *find, int x)
 	while (txt[++i])
 		if (txt[i] == find[0] && txt[i + 1] == find[1])
 			break ;
+	if (!txt[i])
+		return ;
 	i += 2;
 	while (txt[i] && (txt[i] == ' ' || txt[i] == '	'))
 		i++;

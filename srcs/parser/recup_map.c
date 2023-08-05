@@ -39,7 +39,7 @@ int	t_line(char *map)
 	return (i);
 }
 
-void	stocker_map(char *txt)
+int	stocker_map(char *txt)
 {
 	int	i;
 	int	j;
@@ -47,8 +47,8 @@ void	stocker_map(char *txt)
 
 	x = 0;
 	j = 0;
-	i = 0;
-	while (txt[i])
+	i = -1;
+	while (txt[++i])
 	{
 		x = 0;
 		if (txt[i] == '\n' && (txt[i + 1] == '\n' || !txt[i + 1]))
@@ -60,18 +60,21 @@ void	stocker_map(char *txt)
 			g_conf.map[j][x++] = txt[i++];
 		g_conf.map[j][x] = 0;
 		j++;
-		i++;
 	}
 	g_conf.map[j] = NULL;
+	if (txt[i])
+		if (printf("Error: The map isn't the last parameter in the .cub\n"))
+			return (1);
+	return (0);
 }
 
-void	recup_map(char *txt)
+int	recup_map(char *txt)
 {
 	int	i;
 
 	i = -1;
 	while (txt[++i])
-		if ((txt[i] == '1' || txt[i] == '0')
+		if (txt[i] == '1'
 			&& (txt[i + 1] == '1' || txt[i + 1] == '\n')
 			&& (txt[i - 1] == ' ' || txt[i - 1] == '\n' || txt[i - 1] == '\t'))
 			break ;
@@ -82,5 +85,7 @@ void	recup_map(char *txt)
 				break ;
 	}
 	g_conf.map = gc_malloc(&(g_gc), (taille_map(&txt[i]) + 1) * sizeof(char *));
-	stocker_map(&txt[i]);
+	if (stocker_map(&txt[i]) == 1)
+		return (1);
+	return (0);
 }

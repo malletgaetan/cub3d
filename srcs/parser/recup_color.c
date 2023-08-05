@@ -33,6 +33,27 @@ int	color_overflow(int *tmp, int x)
 	return (0);
 }
 
+int	recup_color_part3(char *txt, int **tmp, int i, int j)
+{
+	while (++j < 3 && txt[i] != '\n')
+	{
+		while (txt[i] == ' ')
+			i++;
+		(*tmp)[j] = ft_atoi(&txt[i]);
+		while (txt[i] >= '0' && txt[i] <= '9')
+			i++;
+		while (txt[i] == ' ')
+			i++;
+		if (txt[i] != ',' && txt[i] != ' ' && txt[i] != '\n')
+			return (1);
+		i++;
+	}
+	(*tmp)[j] = 0;
+	if (txt[i - 1] != '\n')
+		return (1);
+	return (0);
+}
+
 int	recup_color_part2(char *txt, int **tmp, char find)
 {
 	int	i;
@@ -47,16 +68,8 @@ int	recup_color_part2(char *txt, int **tmp, char find)
 	i += 2;
 	*tmp = gc_malloc(&(g_gc), 4 * sizeof(int));
 	j = -1;
-	while (++j < 3 && txt[i] != '\n')
-	{
-		(*tmp)[j] = ft_atoi(&txt[i]);
-		while (txt[i] >= '0' && txt[i] <= '9')
-			i++;
-		while (txt[i + 1] != '\n' && (txt[i] < '0' && txt[i] > '9'))
-			i++;
-		i++;
-	}
-	(*tmp)[j] = 0;
+	if (recup_color_part3(txt, tmp, i, j))
+		return (1);
 	return (0);
 }
 
@@ -66,7 +79,7 @@ int	recup_color(char *txt, char find, int x)
 
 	if (recup_color_part2(txt, &tmp, find))
 	{
-		printf("Error: There is no color for the ceiling or the floor\n");
+		printf("Error: Bad color for the ceiling or the floor\n");
 		return (1);
 	}
 	if (color_overflow(tmp, x))

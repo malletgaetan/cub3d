@@ -3,9 +3,9 @@ SO ./textures/wall_2.xpm
 WE ./textures/wall_3.xpm
 EA ./textures/wall_4.xpm
 F 220,100,0
-C 225,30,0
-
-11111111
-1S000001
-100000N1
-11111111
+C rip
+111111
+100101
+101001
+1100N1
+111111
