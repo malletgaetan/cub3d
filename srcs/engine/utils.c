@@ -54,7 +54,7 @@ void	draw_vertical_line(int x, int line_height, t_texture *text, int text_x)
 	while (y < draw_start)
 		img_pix_put(x, y++, g_conf.cell_color);
 	text_y = 0.0;
-	while (y <= draw_end)
+	while (y < draw_end)
 	{
 		img_pix_put(x, y++, get_pix_color(text, text_x, (int)text_y));
 		text_y += step;
